@@ -21,7 +21,7 @@ public class Main {
 		}
 		
 		System.out.println("Size = " + pm.size());
-		for (String s: pm.wordsWithPrefix("fi", 1)) {
+		for (String s: pm.wordsWithPrefix("ara", 3)) {
 			System.out.println(s);
 		}
 	}
