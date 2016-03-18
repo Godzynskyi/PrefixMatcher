@@ -52,8 +52,8 @@ public class PrefixMatcher implements IPrefixMatcher {
 	}
 
 	@Override
-	public Iterable<String> wordsWithPrefix(final String pref, final int k) {
-		if (pref.length() < 2) return new LinkedList<String>();
+	public Iterable<String> wordsWithPrefix(String pref, int k) {
+		if (pref.length() < 2) return new TreeSet<String>();
 		return new Iterable<String>() {
 			Iterator<String> trieIterator = trie.wordsWithPrefix(pref).iterator();
 			String next;
@@ -91,7 +91,6 @@ public class PrefixMatcher implements IPrefixMatcher {
 
 	@Override
 	public Iterable<String> wordsWithPrefix(String pref) {
-		if (pref.length() < 2) return new TreeSet<String>();
 		return wordsWithPrefix(pref,3);
 	}
 

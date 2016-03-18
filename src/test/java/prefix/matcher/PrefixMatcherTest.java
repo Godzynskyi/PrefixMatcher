@@ -113,5 +113,31 @@ public class PrefixMatcherTest {
 		
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	public void wordsWithPrefix_prefLessThat2() {
+		PrefixMatcher pm = new PrefixMatcher();
+		LinkedList<String> linkedListOfWordsByPrefixMethod = new LinkedList<>();
+		linkedListOfWordsByPrefixMethod.add("ab");
+		linkedListOfWordsByPrefixMethod.add("abc");
+		linkedListOfWordsByPrefixMethod.add("abd");
+		linkedListOfWordsByPrefixMethod.add("abt");
+		
+		Trie trie = mock(Trie.class);
+		pm.trie = trie;
+		
+		doReturn(linkedListOfWordsByPrefixMethod).when(trie).wordsWithPrefix("ab");
+		Iterable<String> iterable = pm.wordsWithPrefix("b", 3);
+		
+		int actual = 0;
+		for (String s: iterable) {
+			actual++;
+		}
+		
+		int expected = 0;
+		
+		assertEquals(expected, actual);
+	}
+
 	
 }
