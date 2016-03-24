@@ -22,15 +22,12 @@ public class PrefixMatcher implements IPrefixMatcher {
 	public int add(String... strings) {
 		int firstSize = size();
 		for (String s: strings) {
-			Pattern pattern = Pattern.compile("[a-zA-Z]+");
+			Pattern pattern = Pattern.compile("[a-zA-Z]{3,}");
 			Matcher matcher = pattern.matcher(s);
-			List<String> splitStrings = new LinkedList<>();
-			while (matcher.find()) {
-				splitStrings.add(matcher.group());
-			}
 			
-			for (String word: splitStrings) {
-				if (word.length() > 2) trie.add(new Tuple(word, word.length()));
+			while (matcher.find()) {
+				String word = matcher.group();
+				trie.add(new Tuple(word, word.length()));
 			}
 		}
 		return size() - firstSize;

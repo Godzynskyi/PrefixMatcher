@@ -15,7 +15,7 @@ public class PrefixMatcherTest {
 		Trie trie = mock(Trie.class);
 		pm.trie = trie;
 		
-		pm.add("asdf  asdfe as 1 easdf asdfasdf", "asdfasd asdfwqef asdf");
+		pm.add("asdf  asdfe as 1 easdf asdfasdf", "asdfasd asdfwqef asf");
 		pm.add("asdf asdfe asdf easdf asdfasdf", "asdfasd asdfwqef asdf asdf");
 		
 		verify(trie, times(16)).add(anyObject());
