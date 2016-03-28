@@ -6,6 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Iterator;
 
+import prefix.matcher.prefix.matcher.IPrefixMatcher;
+import prefix.matcher.prefix.matcher.PrefixMatcher;
+
 public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
